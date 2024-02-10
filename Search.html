@@ -1,0 +1,56 @@
+<input type="text" onkeyup="check(event)">
+<!--inga onkeyup use panrom anga input la type panra apo antha function call aagum
+-->
+<div>
+    <h1>one</h1>
+    <h1>two</h1>
+    <h1>three</h1>
+    <h1>four</h1>
+    <h1>five</h1>
+</div>
+
+<script>
+    var text=""
+    var container=document.querySelector("div");
+    var elements=document.querySelectorAll("h1");
+    console.log(elements);
+
+//     function check(event){
+//         // actual ah idhu onnum illa namba anga input la enga vaangurom nu event.target.value vazhiya vaangurom adha vanthu oru text la store panrom ipo namba adha first element la check panrom ie,elements la ipo ellam h1 tag iruka adhula namba elements[0]= one .ipo input one oda match aagutha nu paaka porom so elements[0].textcontent idhu vanthu antha elements[0] la irukura text content edukum one nu apro elements[0].textContent.indexOf(text) ipo antha textcontent la namba kudutha input entha index la iruku nu paakrom.     ipo  namba var str="hello";
+// //console.log(str.indexOf("h")) nu podrom idhoda output vanthu namaku 0 nu varum yena h 0 index la iruku ipo namba "z" nu kudutha adhu str la ila so -1 nu varum antha concept dhan use panna porom elements[0].textContent.indexOf(text) idhula one text oda match aagutha nu paakum match aagla na -1 nu varum adhunala if elements[0].textContent.indexOf(text)<0 antha element namaku vena ipo namba enter pananthu one oda match aagala na adhu namku display aaga vena edhula lam match aagutho adhu dhan namku display pannanum adhunaala antha elements[0].style.display="none";
+//         text=event.target.value
+//         if(elements[0].textContent.indexOf(text)<0){
+//             elements[0].style.display="none";
+//         }
+//         else{
+//             elements[0].style.display="block";
+//         }
+//}
+
+// ipo mela paathathu namba oru element vechi check pannom ipo irukura ellam elemets oda namba input match aaagutha nu paakanum adhuku looping
+// function check(event){
+//     for(var i=0;i<elements.length;i++){
+//         text=event.target.value;
+//         if(elements[i].textContent.indexOf(text)<0){
+//           elements[i].style.display="none";  
+//         }
+//         else{
+//             elements[i].style.display="block";
+//         }
+//     }
+// }
+
+// ipo above code is fine but namba ipo elements la one nu vechi irukum if input la One or ONE apdinu search panna namku one display aagathu so adhuku namba antha event la value vaangurom la adha toUppercase ku maathikurom adhaemaari elements[i].textcontent.toUppercase maathikurom so rendum match aagum
+
+function check(event){
+    text=event.target.value.toUpperCase();
+    for(var i=0;i<elements.length;i++){
+        if(elements[i].textContent.toUpperCase().indexOf(text)<0){
+            elements[i].style.display="none";
+        }
+        else{
+            elements[i].style.display="block";
+        }
+    }
+}
+</script>
